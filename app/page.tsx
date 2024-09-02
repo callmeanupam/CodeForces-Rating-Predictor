@@ -11,6 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import Link from "next/link";
 
 ChartJS.register(
   CategoryScale,
@@ -107,9 +108,10 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-black flex flex-col items-center justify-center p-6 text-white">
       <div className="bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl transition-all duration-300 ease-in-out">
-        <h1 className="text-4xl font-bold text-center mb-6">
+        <h1 className="text-xl sm:text-2xl font-bold text-center mb-4 sm:mb-6">
           Codeforces Rating Predictor
         </h1>
+
         <input
           type="text"
           placeholder="Enter Codeforces username"
@@ -123,6 +125,7 @@ const Home: React.FC = () => {
         >
           Predict Rating
         </button>
+
         {error && <p className="text-red-500 text-center mt-4">{error}</p>}
         {userData && (
           <div className="mt-6 p-4 bg-gradient-to-r from-indigo-800 to-purple-700 rounded-md shadow-md transition-all duration-300 ease-in-out">
@@ -190,9 +193,16 @@ const Home: React.FC = () => {
           </div>
         )}
       </div>
-      <footer className="mt-8 text-center">
-        <p>
-          Developed by{" "}
+      <footer className="mt-8 flex flex-col sm:flex-row items-center justify-center sm:justify-between text-center space-y-2 sm:space-y-0">
+        <Link
+          className="text-blue-500 hover:text-blue-700 decoration-dashed hover:decoration-solid transition-all duration-300"
+          href="/how"
+        >
+          Check How It's Working
+        </Link>
+
+        <p className="ml-0 sm:ml-2">
+          - Developed by{" "}
           <a
             className="text-indigo-500 hover:text-indigo-400 transition duration-300"
             href="https://anupamshakya.in"
